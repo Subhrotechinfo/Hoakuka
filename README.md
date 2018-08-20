@@ -7,3 +7,5 @@
 - Mongodb
 - Socket.io
 - Expressjs
+
+##### Added support for codeship
