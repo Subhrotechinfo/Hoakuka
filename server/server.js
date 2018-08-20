@@ -11,7 +11,7 @@ const publicPath = path.join(__dirname,'../public');
 //config the env PORT variable
 const port = process.env.PORT || 3000;
 //import generateMessage
-const {generateMessage} = require('./utils/message');
+const {generateMessage,generateLocationMessage} = require('./utils/message');
 
 //configure our express application
 var app = express();
@@ -34,11 +34,11 @@ io.on('connection',(socket) => {
     console.log('createMessage:' ,message);
     io.emit('newMessage',generateMessage(message.from, message.text));
     callback('This is from the server');
-    // socket.broadcast.emit('newMessage',{
-    //   from:message.from,
-    //   text:message.text,
-    //   createdAt:new Date().getTime()
-    // });
+  });
+
+  //geolocation
+  socket.on('createLocationMessage',(coords) => {
+    io.emit('newLocationMessage', generateLocationMessage('Admin',coords.latitude , coords.longitude));
   });
 
   socket.on('disconnect',() =>{
