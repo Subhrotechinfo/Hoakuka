@@ -5,4 +5,5 @@
 ### Tech Stack
 - Nodejs
 - Mongodb
+- Socket.io
 - Expressjs
