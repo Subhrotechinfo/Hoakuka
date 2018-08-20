@@ -17,7 +17,18 @@ function scrollToBottom () {
 }
 
 socket.on('connect',function ()  {
-  console.log('Connected to server');
+  //console.log('Connected to server');
+  var params = jQuery.deparam(window.location.search);
+
+  socket.emit('join',params,function (err) {
+      if(err){
+        //redirect the user to the home page
+        alert(err);
+          window.location.href = '/';
+      }else{
+        console.log('No error');
+      }
+  });
 });
 
 socket.on('disconnect' ,function () {
