@@ -19,7 +19,6 @@ function scrollToBottom () {
 socket.on('connect',function ()  {
   //console.log('Connected to server');
   var params = jQuery.deparam(window.location.search);
-
   socket.emit('join',params,function (err) {
       if(err){
         //redirect the user to the home page
@@ -89,7 +88,6 @@ jQuery('#message-form').on('submit',function (e){
   var messageTextBox = jQuery('[name=message]');
 
   socket.emit('createMessage',{
-    from:'User',
     text:messageTextBox.val()
   },function(){
     //set the value to empty string
