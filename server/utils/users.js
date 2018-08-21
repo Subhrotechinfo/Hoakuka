@@ -37,7 +37,6 @@ class Users{
   removeUser (id) {
     //return removed user
     var user = this.getUser(id);
-
     if(user){
       this.users = this.users.filter((user) => user.id !== id);
     }
