@@ -9,3 +9,6 @@
 - Expressjs
 
 ##### Added support for codeship
+
+#### Author
+Subhro Chatterjee
